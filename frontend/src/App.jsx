@@ -23,7 +23,7 @@ function App() {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      const res = await axios.post('http://backend:8001/analyze', formData);
+      const res = await axios.post('/analyze', formData);
       setReport(res.data);
     } catch (err) {
       alert('Network Error: ' + err.message);
