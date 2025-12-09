@@ -1,18 +1,14 @@
 services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./results:/app/results
+
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
+    build: ./frontend
     ports:
       - "3000:80"
     depends_on:
       - backend
-
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
-    ports:
-      - "8001:8001"
-    volumes:
-      - ./model.pth:/app/model.pth
