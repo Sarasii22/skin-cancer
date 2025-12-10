@@ -13,7 +13,9 @@ function App() {
     form.append("file", file);
     
     try {
-      const res = await axios.post("/analyze", form);
+      const res = await axios.post("/analyze", form, {
+  headers: { "Content-Type": "multipart/form-data" }
+});
       setResult(res.data);
     } catch (e) { alert("Error: " + e.message); }
     setLoading(false);
